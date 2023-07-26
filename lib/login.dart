@@ -96,6 +96,7 @@ class LoginState extends State<Login> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Text(errorMessage, style: const TextStyle(color: Colors.red)),
+            const SizedBox(height: 10),
             TextField(
               controller: atlasFolder,
               readOnly: true,
@@ -104,18 +105,21 @@ class LoginState extends State<Login> {
                   labelText: "Atlas Folder (steamapps/common/Atlas Reactor/)"),
               onTap: setAtlasFolder,
             ),
+            const SizedBox(height: 10),
             TextField(
               controller: evosServer,
               enabled: atlasFolderValid,
               decoration: const InputDecoration(
                   border: OutlineInputBorder(), labelText: "EvoS Server Url"),
             ),
+            const SizedBox(height: 10),
             TextField(
               controller: username,
               enabled: atlasFolderValid,
               decoration: const InputDecoration(
                   border: OutlineInputBorder(), labelText: "Username"),
             ),
+            const SizedBox(height: 10),
             Row(
               children: [
                 Expanded(
@@ -137,6 +141,7 @@ class LoginState extends State<Login> {
                 )
               ],
             ),
+            const SizedBox(height: 10),
             OutlinedButton(
                 onPressed: startAtlas,
                 child: const Text(
