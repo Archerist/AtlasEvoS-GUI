@@ -27,7 +27,17 @@ class LoginState extends State<Login> {
       "./Games/Atlas Reactor/Live/Config/AtlasReactorConfig.json";
   final String execPath = "./Games/Atlas Reactor/Live/Win64/AtlasReactor.exe";
 
-  Map atlasConfigMap = {};
+  Map atlasConfigMap = {
+    "PlatformUserName": "",
+    "PlatformPassword": "",
+    "DirectoryServerAddress": "",
+    "EnableLogging": true,
+    "MinConsoleLogLevel": "Everything",
+    "MinFileLogLevel": "Everything",
+    "DevMode": false,
+    "AutoLaunchTutorial": false,
+    "PlatformConfig": {"AllowRequestTickets": true}
+  };
 
   setAtlasFolder() async {
     String? folder = await FilePicker.platform
@@ -53,13 +63,14 @@ class LoginState extends State<Login> {
         atlasConfigMap = jsonDecode(await conf.readAsString());
       } on PathNotFoundException {
         conf.create();
+        conf.writeAsString(jsonEncode(atlasConfigMap));
       }
 
       setState(() {
         atlasFolderValid = true;
-        username.text = atlasConfigMap["PlatformUserName"] ?? "";
-        password.text = atlasConfigMap["PlatformPassword"] ?? "";
-        evosServer.text = atlasConfigMap["DirectoryServerAddress"] ?? "";
+        username.text = atlasConfigMap["PlatformUserName"];
+        password.text = atlasConfigMap["PlatformPassword"];
+        evosServer.text = atlasConfigMap["DirectoryServerAddress"];
       });
     }
   }
