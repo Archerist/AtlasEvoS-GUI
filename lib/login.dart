@@ -5,9 +5,7 @@ import 'dart:convert';
 import 'package:path/path.dart' as p;
 
 class Login extends StatefulWidget {
-  const Login({super.key, required this.title});
-
-  final String title;
+  const Login({super.key});
 
   @override
   State<Login> createState() => LoginState();

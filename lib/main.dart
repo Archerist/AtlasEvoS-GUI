@@ -8,7 +8,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
   if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
-    setWindowTitle('My App');
+    setWindowTitle('Atlas EvoS Login');
     setWindowMaxSize(const Size(400, 600));
     setWindowMinSize(const Size(400, 600));
   }
@@ -21,7 +21,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-        title: 'Atlas EvoS Login', home: Login(title: "Atlas EvoS Login"));
+    return const MaterialApp(title: 'Atlas EvoS Login', home: Login());
   }
 }
